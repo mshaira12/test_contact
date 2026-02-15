@@ -1,3 +1,4 @@
+// main.js – pour Cloudflare Pages uniquement
 
 const form = document.getElementById("contactForm");
 const successMessage = document.getElementById("successMessage");
@@ -6,23 +7,11 @@ const errorMessage = document.getElementById("errorMessage");
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // Récupère les valeurs du formulaire
-  const name = form.name.value;
-  const email = form._replyto.value;
-  const message = form.message.value;
-
-  // Détecte si on est en local ou sur Pages
-  const isLocal = window.location.hostname === "localhost";
-  const endpoint = isLocal ? "http://localhost:3000/contact" : "/contact";
-
   try {
-    // Envoie le formulaire
-    const response = await fetch(endpoint, {
+    // Envoie le formulaire en POST avec FormData
+    const response = await fetch("/contact", {
       method: "POST",
-      body: isLocal
-        ? JSON.stringify({ name, _replyto: email, message }) // local Node.js attend JSON
-        : new FormData(form),                               // Cloudflare Pages accepte FormData
-      headers: isLocal ? { "Content-Type": "application/json" } : { "Accept": "application/json" }
+      body: new FormData(form) // Cloudflare Pages Functions accepte FormData
     });
 
     let data;
@@ -32,6 +21,7 @@ form.addEventListener("submit", async function (e) {
       data = { status: "error", message: "Empty or invalid JSON response" };
     }
 
+    // Affichage des messages
     if (response.ok && data.status === "success") {
       successMessage.style.display = "block";
       errorMessage.style.display = "none";
@@ -41,12 +31,14 @@ form.addEventListener("submit", async function (e) {
       errorMessage.textContent = "❌ Error: " + (data.message || "Unknown error");
       successMessage.style.display = "none";
     }
+
   } catch (err) {
     errorMessage.style.display = "block";
     errorMessage.textContent = "❌ Error: " + err.message;
     successMessage.style.display = "none";
   }
 });
+
 
 
 
