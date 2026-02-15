@@ -1,0 +1,1296 @@
+/* ==============================
+   VARIABLES CSS
+================================ */
+:root {
+  --color-primary: #003366;
+  --color-secondary: #0073aa;
+  --color-accent: #b8860b;
+  --color-text: #333;
+  --color-background: #fff;
+  --color-footer-bg: #f8f8f8;
+  --color-footer-border: #ccc;
+
+  /* Typographie */
+  --font-base: 'Segoe UI', Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-title: 2.4rem;
+  --font-size-slogan: 1.35rem;
+  --font-size-hero-h1: 2.4rem;
+  --font-size-hero-p: 1.3rem;
+
+  /* Espacements */
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 20px;
+  --space-xl: 30px;
+  --space-xxl: 60px;
+
+  /* Rayons / Bordures */
+  --radius-btn: 30px;
+  --radius-hero: 20px;
+  --border-footer: 1px solid var(--color-footer-border);
+
+  --debug-footer: 2px solid red; /* 👈 AJOUT ICI */
+}
+
+/* ==============================
+   RESET & BASE
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+/* ==============================
+   PAGE WRAPPER
+================================ */
+.page-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+
+/* =========================
+   Generic icon sizes
+========================= */
+
+.icon-xs {
+  width: 18px;
+  height: auto;
+}
+
+.icon-sm {
+  width: 22px;
+  height: auto;
+}
+
+.icon-md {
+  width: 28px;
+  height: auto;
+}
+
+.icon-lg {
+  width: 36px;
+  height: auto;
+}
+
+
+/* ==============================
+   HEADER
+================================ */
+.site-header {
+  width: 100%;
+  background: var(--color-background);
+}
+
+/* --- Top bar --- */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-lg);
+  direction: ltr;   /* 🔒 structure figée */
+  max-width: 80%;
+  margin: 0 auto;
+  padding: var(--space-sm) 0;
+}
+
+/* Languages */
+.languages {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+
+.languages a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.languages img {
+  width: 16px;
+  height: 11px;
+}
+
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.social-icons img {
+  max-width: 100%;
+  height: auto;
+}
+
+.social-icons a:hover img {
+  opacity: 0.75;
+}
+
+.social-icons {
+  order: 3;          /* 🔒 toujours après les langues */
+  flex-direction: row;
+}
+
+
+
+/* Logo + navigation */
+.logo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  max-width: 100%;
+  margin: var(--space-sm) auto 0;
+  position: relative;
+}
+
+
+
+/* Navigation desktop */
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;          /* ✅ autorise 2 lignes */
+  gap: 20px;
+  justify-content: center;  /* ✅ centré */
+}
+
+
+.nav ul li {
+  white-space: nowrap;    /* <- empêche les mots de se casser */
+}
+
+.nav ul li a {
+  font-weight: 600;       /* <- garde les liens en gras */
+  color: var(--color-primary);
+  padding: 6px 10px;
+}
+
+
+/* ==============================
+   TITRES
+================================ */
+.site-title {
+  text-align: center;
+  margin: 16px 0 14px;
+  font-size: var(--font-size-title);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.site-title:hover {
+  color: var(--color-accent);
+}
+
+.site-slogan {
+  text-align: center;
+  font-size: var(--font-size-slogan);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin: var(--space-lg) 0;
+}
+
+.site-subtitle .slogan-line {
+  border: none;
+  border-top: 1px solid var(--color-footer-border);
+  margin: 6px auto;
+  max-width: 520px;
+}
+
+
+/* ==============================
+   HERO
+================================ */
+.hero {
+  text-align: center;
+  padding: var(--space-xxl) var(--space-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #fff;
+  border-radius: var(--radius-hero);
+  margin-bottom: var(--space-xxl);
+}
+
+.hero h1 {
+  font-size: var(--font-size-hero-h1);
+  margin-bottom: var(--space-sm);
+}
+
+.hero p {
+  font-size: var(--font-size-hero-p);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+
+/* ==============================
+   CONTENT – COLUMNS (CUSTOM PAGES)
+   Used in: partnerships, services, etc.
+================================ */
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start; 
+}
+
+.column {
+  flex: 1 1 45%;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.column h4 {
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.column ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.column ul li {
+  margin-bottom: var(--space-xs);
+}
+
+
+/* Buttons */
+.wp-block-button__link {
+  display: inline-block;
+  background: var(--color-secondary);
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  text-align: center;
+}
+
+
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.site-footer {
+  background: var(--color-footer-bg);
+  padding: 60px 20px 40px;
+  border-top: var(--border-footer);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo img {
+  max-width: 110px;
+  width: auto;
+  height: auto;
+}
+
+
+.footer-nav ul li a {
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+/* Footer container */
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Ligne petite (ancienne) */
+.footer-bottom hr {
+  width: 120px;             /* largeur petite */
+  margin: 20px auto;        /* espace vertical */
+  border: none;
+  border-top: 1px solid var(--color-footer-border);
+}
+
+/* Ligne grande autour du slogan */
+.footer-bottom .footer-lines-t {
+  width: 66%;              /* ≈ 2/3 de la largeur */
+  max-width: 600px;         /* limite sur PC */
+  margin: 5px auto;
+  border: none;
+  border-top: 1px solid var(--color-footer-border);
+}
+
+/* Texte du slogan */
+.footer-bottom .footer-slogan {
+  text-align: center;
+  margin: 12px 0;           /* espace entre les lignes */
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+
+
+
+.footer-slogan:hover {
+  color: #d4af37;
+  cursor: default;
+}
+
+/* Footer menu – default (LTR) */
+.footer-nav ul {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Footer menu – AR */
+html[lang="ar"] .site-footer .footer-nav ul {
+  direction: rtl;
+  justify-content: flex-start;
+}
+
+.site-footer {
+  outline: var(--debug-footer);
+}
+
+
+
+/* ==============================
+   FOOTER SOCIAL
+================================ */
+.footer-social {
+  display: flex;               /* centrer horizontalement tous les liens et séparateur */
+  justify-content: center;     
+  align-items: center;
+  gap: 8px;                    /* espace entre liens et séparateur */
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.footer-social a {
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;              /* couleur par défaut */
+  transition: color 0.3s ease, opacity 0.3s ease;
+  padding: 0 8px;              /* espace entre texte et séparateur */
+}
+
+/* Couleurs spécifiques par réseau social */
+.footer-social a.whatsapp { color: #25D366; }
+.footer-social a.linkedin  { color: #0077b5; }
+.footer-social a.facebook  { color: #1877F2; }
+.footer-social a.instagram { color: #E4405F; }
+
+/* Hover commun */
+.footer-social a:hover {
+  opacity: 0.8;
+}
+
+/* Séparateur "|" entre les liens via un span dédié */
+.footer-social .social-separator {
+  color: #555;
+}
+
+
+/* ==============================
+   Contact Form Styling
+================================ */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  padding: 30px;
+  background-color: #f9f9ff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-container h2 {
+  text-align: center;
+  color: #003366;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.contact-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #003366;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  border-color: #0073aa;
+  box-shadow: 0 0 5px rgba(0,115,170,0.3);
+  outline: none;
+}
+
+.contact-container button {
+  display: inline-block;
+  background: #003366;
+  color: #fff;
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-container button:hover {
+  background: #0073aa;
+  transform: translateY(-2px);
+}
+
+/* Success & Error Messages */
+.success-message,
+.error-message {
+  display: none; /* masqué par défaut */
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: none; /* masqué par défaut */
+}
+
+
+
+
+
+/* =====================================================
+   LAYOUT – 3 COLUMNS (GLOBAL, STABLE, GÉNÉRIQUE)
+   ✔ fonctionne dans page-wrapper (80%)
+   ✔ pas de hack
+   ✔ pas de viewport
+===================================================== */
+
+/* images / logos */
+.column-3 img,
+.wp-block-column-3 img {
+  display: block;
+  margin: 0 auto;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* ==============================
+   TEXT – GLOBAL UTILITIES
+   Neutral, reusable, site-wide
+================================ */
+
+/* Centered text (intro, slogans, CTA) */
+.text-center {
+  text-align: center;
+}
+
+/* Standard paragraph */
+.text-body {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  line-height: 1.8;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+
+/* Justified long content (about, articles) */
+.text-justify {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+/* Emphasis / quote */
+.text-quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.3em;
+  color: #004080;
+  margin: 50px 0;
+}
+
+
+/* ==============================
+   HEADINGS – GLOBAL
+================================ */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ==============================
+   LAYOUT – SIMPLE UTILITIES
+================================ */
+
+.section-spacing {
+  margin-top: 60px;
+}
+
+.section-spacing-lg {
+  margin-top: 80px;
+}
+
+
+/* =========================
+   align blocks on a line
+    <div class="flex-row">
+      <div class="flex-col">Colonne 1</div>
+      <div class="flex-col">Colonne 2</div>
+    </div>
+========================= */
+
+/* Flexible columns */
+.flex-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* ===============================================
+Alignement vertical uniquement pour image + texte 
+==================================================*/
+.columns-text-img {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center; /* centré verticalement */
+}
+
+/* ==============================
+   CONTENT – TEXT LISTS (GLOBAL)
+================================ */
+
+.content-list {
+  list-style: disc;
+  list-style-position: outside;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.7;
+  padding-inline-start: 20px; /* RTL-safe */
+}
+
+.content-list li {
+  margin-bottom: var(--space-xs);
+}
+
+/* LISTES CENTRÉES COURTES */
+.content-list.text-center {
+  list-style-position: inside; /* puces à l’intérieur, plus proches du texte */
+  padding-inline-start: 0;     /* supprime le décalage gauche */
+  text-align: center;          /* centre le texte */
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.content-list.text-center li {
+  margin-bottom: 10px;        /* espace entre les lignes */
+}
+
+
+
+/* =========================
+   MOBILE – COLUMNS STACK
+========================= */
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+/* Spacing utilities */
+.mt-sm { margin-top: 20px; }
+.mt-md { margin-top: 30px; }
+.mt-lg { margin-top: 60px; }
+.mt-xl { margin-top: 100px; }
+
+.mb-sm { margin-bottom: 20px; }
+.mb-md { margin-bottom: 30px; }
+.mb-lg { margin-bottom: 60px; }
+.mb-xl { margin-bottom: 100px; }
+
+
+/* CTA */
+.cta {
+  background: #f0f8ff;
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 20px;
+  margin: 60px 0 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.cta-text {
+  max-width: 800px;
+  margin: 0 auto 25px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/*=======================
+         Buttons     
+=======================*/
+.btn-1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 30px;   /* 🔑 clé */
+  padding: 0 15px;   /* 🔑 plus de padding vertical */
+
+  background: #038bc9;
+  color: white;
+  border-radius: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+
+.btn-1:hover {
+  background: #005f8a;
+}
+
+.btn-2 {
+  background-color: #e6eef5;   /* gris bleuté chic */
+  color: #0f172a;              /* texte élégant */
+  border: 1px solid #cbd5e1;
+
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-top: 12px;
+
+  display: inline-flex;
+  align-items: center;      /* centre verticalement */
+  justify-content: center;  /* centre horizontalement */
+  text-align: center;       /* sécurité pour texte RTL */
+  gap: 6px;
+}
+
+.btn-2:hover {
+  background-color: #dbeafe;
+}
+
+
+.spacer-xs { height: 1px; margin: 0; padding: 0; display: block; overflow: hidden;  clear: both;}
+.spacer-sm { height: 5px; }
+.spacer-md { height: 40px; }
+.spacer-lg { height: 80px; }
+.spacer-xl { height: 100px; }
+
+
+/* =====================================================
+   PARTNERS – 3 COLUMNS RESPONSIVE (CLEAN & SAFE)
+===================================================== */
+
+
+
+
+/* GRILLE PARTENAIRES */
+.columns-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 300px); /* 3 colonnes fixes */
+  gap: 20px;                               /* espace entre colonnes */
+  justify-content: center;                  /* centre la grille */
+  margin: 0 auto;                           /* centre tout le bloc */
+}
+
+/* RESPONSIVE TABLETTE */
+@media (max-width: 960px) {
+  .columns-3 {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes flexibles */
+    gap: 20px;                             /* garde l'espacement */
+  }
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 640px) {
+  .columns-3 {
+    grid-template-columns: 1fr; /* 1 colonne */
+    gap: 40px;                  /* ajoute plus d'espace vertical */
+  }
+}
+
+
+/* ==============================
+   3 COLONNES TEXTE – GÉNÉRIQUE
+================================= */
+
+.columns-3-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;           /* espace entre colonnes */
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.column-3-text {
+  flex: 1 1 30%;       /* jusqu'à 3 colonnes sur desktop */
+  min-width: 250px;
+  padding: 15px;
+  text-align: center;
+}
+
+.column-3-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.column-3-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .column-3-text {
+    flex: 0 0 45%;  /* 2 colonnes */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .column-3-text {
+    flex: 0 0 100%; /* 1 colonne */
+  }
+}
+
+/* ===== 4 COLUMNS LAYOUT ===== */
+.columns-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.column-4 {
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.column-4 h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.column-4 p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .columns-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .columns-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =====================================================
+   IMAGE SYSTEM – CLEAN & COHERENT
+   Fonctionne avec page-wrapper (80%)
+===================================================== */
+
+/* BASE */
+.img {
+  display: block;
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* ==============================
+   WIDTH (X)
+============================== */
+
+/* largeur normale du contenu (80%) */
+.img-w-wrapper {
+  max-width: 100%;
+}
+
+/* 75% de la largeur du contenu */
+.img-w-75 {
+  max-width: 75%;
+}
+
+/* largeur fixe lisible (grands écrans) */
+.img-w-site {
+  max-width: 1200px;
+}
+
+/* vraie pleine largeur écran (RARE) */
+.img-w-viewport {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
+}
+
+/* ==============================
+   HEIGHT (Y)
+============================== */
+
+.img-h-s  { height: 200px; }
+.img-h-m  { height: 280px; }
+.img-h-l  { height: 360px; }
+.img-h-xl { height: 480px; }
+
+/* image non coupée */
+.img-h-auto {
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* ==============================
+   SPACING
+============================== */
+
+.img-m-sm { margin: 15px auto; }
+.img-m-md { margin: 30px auto; }
+.img-m-lg { margin: 60px auto; }
+
+
+/* ==============================
+   FOOTER AR – LOGO À GAUCHE
+================================ */
+
+html[lang="ar"] .site-footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: ltr; /* structure stable */
+}
+
+/* logo à gauche */
+html[lang="ar"] .site-footer .footer-logo {
+
+}
+
+/* menu à droite */
+html[lang="ar"] .site-footer .footer-nav {
+}
+
+/* ==============================
+   AR CONTENT – STABLE & SAFE
+================================ */
+
+
+html[lang="ar"] .content-wrapper p,
+html[lang="ar"] .content-wrapper li {
+  unicode-bidi: isolate;
+}
+
+/* ============================
+    Inversion globale déjà faite 
+  =============================*/
+
+/* Inversion spécifique des éléments */
+html[lang="ar"] .languages {
+  direction: ltr; /* 🔒 empêche l’inversion automatique RTL */
+}
+
+
+/* Texte et contenu ((((( PAGES AR ))))) */
+html[lang="ar"] .content-wrapper {
+  text-align: right;
+}
+
+
+
+/*==========================
+ ============================*/
+
+/* textes */
+html[lang="ar"] .site-footer .footer-slogan,
+html[lang="ar"] .site-footer .footer-bottom {
+  direction: rtl;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* Footer FR/EN : centrer slogan et menu */
+html[lang="fr"] .site-footer .footer-slogan,
+html[lang="en"] .site-footer .footer-slogan,
+html[lang="fr"] .site-footer .footer-nav ul,
+html[lang="en"] .site-footer .footer-nav ul {
+  text-align: center;        /* centre le texte et slogan */
+  justify-content: center;    /* centre les items du menu */
+  flex-wrap: wrap;            /* garde responsive si menu long */
+  display: flex;              /* pour que justify-content fonctionne */
+  gap: 16px;                  /* espace entre liens */
+}
+
+/* ==============================
+   IMAGES HEADER – NORMALISATION
+================================ */
+
+/* Logo principal */
+.site-header .logo img {
+  width: 140px;
+  height: auto;
+  display: block;
+}
+
+
+/* ==============================
+   MOBILE (GLOBAL)
+================================ */
+.hamburger {
+  touch-action: manipulation;
+}
+
+/* Hamburger (base – desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.hamburger span {
+  height: 3px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+
+  /* Hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    display: none;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 999;
+  }
+
+  .nav ul.active {
+    display: flex;
+  }
+
+  /* Footer */
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  /* ===== HEADER AR MOBILE ===== */
+  html[lang="ar"] .logo-nav {
+    direction: ltr;
+  }
+
+  html[lang="ar"] .logo {
+    order: 1;
+  }
+
+  html[lang="ar"] .hamburger {
+    order: 2;
+  }
+
+  html[lang="ar"] .nav {
+    order: 3;
+  }
+}
+
+
+/* ==============================
+    parteners presntations
+================================*/
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 100%;
+}
+
+.partner-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.flag-icon {
+  height: auto;
+}
+
+.partner-zone {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.partner-na {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.color-r { color: red; }
+.color-b { color: #1d4ed8; }
+.color-g { color: #32CD32; }
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px; /* hauteur visuelle cohérente */
+}
+
+
+.partner-actions {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+
+/* ===========================
+   MENU MOBILE
+=========================== */
+@media (max-width: 768px) {
+
+  /* Masquer tous les menus par défaut */
+  .nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;          /* hauteur du header */
+    right: 0;
+    width: 220px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+  }
+
+  /* Menu actif */
+  .nav ul.active {
+    display: flex;
+  }
+
+  /* Hamburger bouton */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;  /* au-dessus du menu */
+  }
+
+  .hamburger span {
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Spécifique AR pour garder logo et menu à droite */
+  html[lang="ar"] .logo-nav {
+    direction: ltr;  /* nécessaire pour que flex order fonctionne */
+  }
+  html[lang="ar"] .logo {
+    order: 1;
+  }
+  html[lang="ar"] .hamburger {
+    order: 2;
+  }
+  html[lang="ar"] .nav {
+    order: 3;
+  }
+}
+
+/*    ESPACEMENT ICÔNES – MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .top-bar {
+    flex-wrap: wrap;              /* 🔑 autorise retour à la ligne */
+    justify-content: center;      /* centre proprement */
+    row-gap: 8px;                 /* espace vertical */
+  }
+
+  .languages,
+  .social-icons {
+    justify-content: center;
+  }
+
+  .languages {
+    gap: 8px;                     /* léger espace drapeaux */
+  }
+
+  .social-icons {
+    gap: 10px;                    /* espace entre icônes */
+  }
+}
+
+/* ===== FIX MARGE MOBILE IMAGES ===== */
+@media (max-width: 640px) {
+
+  .flex-col {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+}
+
+
+/* ==============================
+   Contact links hover effect
+================================ */
+.text-center a[href^="tel:"],
+.text-center a[href^="mailto:"],
+.text-center a[href^="https://"] {
+  text-decoration: none;       /* supprime le soulignement par défaut */
+  color: var(--color-primary); /* couleur initiale */
+  transition: background 0.3s ease, color 0.3s ease;
+  padding: 2px 4px;            /* petit espace pour surlignage */
+  border-radius: 4px;          /* coins arrondis */
+}
+
+.text-center a[href^="tel:"]:hover,
+.text-center a[href^="mailto:"]:hover,
+.text-center a[href^="https://"]:hover {
+  background-color: var(--color-accent); /* surlignage au survol */
+  color: #fff;                            /* texte blanc sur surlignage */
+}
+
+

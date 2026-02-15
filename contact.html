@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Test – Shayra ProTech</title>
+  <meta name="description" content="Test contact page for Shayra ProTech">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body class="page-wrapper">
+
+<header class="site-header">
+  <h1>Contact Test – Shayra ProTech</h1>
+</header>
+
+<main>
+  <p id="contact-form-msg" class="text-center">
+    Please fill out the form below to send a test email.
+  </p>
+
+  <!-- Messages -->
+  <div id="successMessage" style="display:none;color:green;text-align:center;">
+    ✅ Your message has been sent successfully!
+  </div>
+  <div id="errorMessage" style="display:none;color:red;text-align:center;">
+    ❌ Error, please contact via email: shayraprotech@gmail.com
+  </div>
+
+  <!-- Contact Form -->
+  <form id="contactForm" method="POST" action="/contact">
+    <label for="name">Name (optional)</label>
+    <input type="text" id="name" name="name" placeholder="Your name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="_replyto" required placeholder="Your email">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" required placeholder="Your message"></textarea>
+
+    <!-- Honeypot Anti-Spam -->
+    <div style="display:none;">
+      <label>Leave this empty</label>
+      <input type="text" name="website" autocomplete="off">
+    </div>
+
+    <button type="submit">Send</button>
+  </form>
+</main>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
